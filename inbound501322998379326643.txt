@@ -1,0 +1,26 @@
+#include<stdio.h>
+int main( int argc, char *argv[] )
+{
+FILE *fp;
+int i;
+fp=fopen("test.txt","w+");
+fprintf(fp,"argc=%d\n",argc);
+for(i=0;i<argc;i++)
+{
+fprintf(fp,"argv[%d]=%s\n",i,argv[i]);
+fprintf(fp,"\n");
+
+}return 0;
+fclose(fp);
+}
+// c program .... wriing text in file using argc and argv 
+//in terminal step:
+//1-gedit  code.c 
+//2-gcc -o test code.c
+//3- ./test hello world 
+//output is .........
+//argc=3
+//argc[0]=./test
+//argc[1]=hello 
+//argc[2]=world
+

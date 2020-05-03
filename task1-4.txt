@@ -1,0 +1,84 @@
+#include <stdio.h>
+
+int add(int argc,char *argv[])
+{
+int x,y;
+if(argc>3)
+printf("\n error\n");
+else
+sscanf(argv[1],'%d",&x);
+sscanf(argv[2],'%d",&y);
+return 0;
+}
+int main(int argc,char *argv[])
+{
+int b;
+b=add (argc,argv);
+printf("\n  f + s=%d",z);
+printf("\n");
+return 0;
+}
+
+////////////////////////////////
+#include <stdio.h>
+FILE *f;
+int a=1;
+int main(int argc,char *argv[])
+{
+f=open("/tmp/a.txt","w");
+if (argc==0)
+return 0;
+else 
+while (a<argc)
+{fput(argv[a],f);
+a++;
+}
+printf("done");
+fclose(f);
+return 0;
+}
+//////////////////////////////////
+#include <stdio.h>
+FILE *f1,f2;
+int a=1;
+char g;
+int main(int argc,char *argv[])
+{
+f=open("/tmp/a.txt","r");
+if (f==NULL)
+printf(" empty\n");
+return 0;
+else 
+f2=open("/tmp/a.txt","w");
+a=fgetc(f1);
+while (a!=EOF)
+{fputc(c,f2);
+a=fgetc(f1);
+}printf("copy done\n");
+
+fclose(f1);
+fclose(f2);
+return 0;
+}
+/////////////////////////////
+#include<stdio.h>
+void print_error(char *this,char *filename1,char *filename2)
+{fprintf(stderr,"%s cannot move %s\n%s\n"this,filename1,filename2,strerror(errno));
+exit(EXIT_FILENAME);
+}
+void print_usage(char *this,char *filename1,char *filename2)
+{fprintf(stderr,"%s cannot move %s\n%s\n"this,filename1,filename2,strerror(errno));
+exit(EXIT_FILENAME);
+}
+int main (int argc,char *argv[])
+{errno=0;
+if(argc==3)
+{if(rename(argv[1],argv[2]==-1){
+print_error(argv[0],argv[1],argv[2]);
+}
+}
+else {
+print_usage(argv[0]);
+}
+return 0;
+}

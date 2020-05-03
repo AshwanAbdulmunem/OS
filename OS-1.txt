@@ -1,0 +1,127 @@
+#include<stdio.h>          
+#include<string.h>
+int main(int argc,char *argv[])
+{
+// int sum;
+// int x []=atoi(argv)
+
+int num1;
+int num2;
+int num3;
+num1=atoi(argv[1]);
+num1=atoi(argv[2]);
+num3=num1+num2;
+printf("%d",num3);
+}
+
+-----------------------------------------------------------------------------
+
+
+#include<stdio.h>  
+int add(int argc,char *argv[])
+{
+int var1,var2,sum;
+if(argc<3||argc>3)
+{
+printif("please enter two values\t");
+return -1;
+}
+else
+{
+scanf(argv[1],"%d",&var1);
+scanf(argv[2],"%d",&var2);
+sum=var1+var2;
+printf("the result is:%d\n",sum);
+return 0;
+}
+}
+int main(int argc,char *argv[])
+{
+return add(argc,argv);
+//printf("hello world");
+
+}
+--------------------------------------------------------------
+#include<stdio.h> 
+int main()
+{
+FILE *fp;
+fp=fopen("/home/ubuntumv/z.txt","w+");
+fp=printf(fp,"this is testing for fprint..\n);
+fputs("is testing for fputs..\n",fp);
+fclose(fp);
+//fp=fopen("/home/ubuntumv/z.txt","w+");
+//return add(argc,argv);
+//printf("hello world!"):
+}
+
+-------------------------------------------------------------------
+
+int main(int argc, char* argv[])
+{
+
+char *nPtr = argv[1];
+char *buffer = new char[5];
+int index = 0;
+
+
+
+ifstream fin(nPtr); //open the file
+if (argc > 1){
+
+// allocate the memory
+if(!fin){
+
+cout << "can't read the file!!" << endl;  
+return -1;
+}
+
+if(fin){
+
+    cout << "Open sucessues!! " << endl;
+}
+
+
+
+
+while (!fin.eof()){
+
+fin >> buffer;
+index++; //counting here!!!
+}
+
+cout << "index: " << index << endl; //print out the counting results!
+cout << "buffer: " << buffer << endl; // checking the last number!  should "15"
+
+delete[] buffer; // 
+buffer = NULL;
+
+int *number = new int[index]; 
+char *temp = new char[index];
+int *home = number; //home
+
+while(!fin.eof()){
+
+    fin >> temp;
+    *number= atoi(temp); //im confessing right here!!!
+    number++;
+    temp++;
+}
+
+
+
+number = home
+
+
+
+
+
+
+
+
+
+
+
+
+
+

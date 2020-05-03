@@ -1,0 +1,15 @@
+#include<stdio.h>
+
+void add(int argc,char *argv[])
+{
+    int x,y,sum;
+    sscanf(argv[1],"%d",&x);
+    sscanf(argv[2],"%d",&y);
+    sum=x+y;
+    printf("%d",sum);
+}
+
+void main(int argc,char *argv[])
+{
+    add(argc,argv);
+}

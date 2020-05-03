@@ -1,0 +1,30 @@
+#include<<stdio.h>
+#include<string.h>
+
+int main(int argc ,char *argv[])
+  {
+    printf("There are %d arguments \n",argc);
+    for(int i=0;i!=argc;++i)
+    {
+      printf("%s\n",argv[i]);
+    }
+char file[30];
+strcpy(file,argv[1]);
+FILE*input_file=fopen(file,"r");
+strcat(file,".out");
+FILE*output_file=fopen(file,"w");
+
+char line[30];
+for(;fgets(line,sizeof(line),input_file)!=NULL)
+  {  
+    printf("%s",line);
+    fprintf(output_file,"%s",line);
+ 
+  }
+if(input_file)
+{
+fclose(input_file);
+fclose(output_file);
+}
+return 0;
+  } 

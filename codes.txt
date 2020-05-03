@@ -1,0 +1,157 @@
+1/ writing text on file using argc and argv
+
+#include<stdio.h>
+FILE *fp;
+int i=1;
+int main(int argc,char *argv[])
+{
+	fp=fopen("/tmp/guest-2ulys/Desktop/a.txt","w");
+	if(argc==0)
+		return 0;
+	else
+		while(i<argc)
+		{fput(argv[i],fp);
+	i++;
+		}
+		printf("ok");
+		fclose(fp);
+		
+		
+		return 0;
+}	
+	
+}
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+2/passing variables to fnction using argc and argv
+  
+ #include<stdio.h>
+int add (int argc,char *argv[])
+{
+	int a,b;
+	if(argc>3)
+		printf("\n the vlaue is false \n");
+	else
+		sscanf(argv[1],"%d",&a);
+	    sscanf(argv[2],"%d",&b);
+		return a+b;
+}
+int main(int argc,char *argv[])
+{
+	int c;
+	c=add(argc,argv);
+	printf("\n first number +second= \%d",c);
+	return 0;
+	
+	
+	
+}
+//////////////////////////////////////////////////////////////////////////
+3/all lab codes
+
+#include<stdio.h>
+FILE *fp;
+int i=1;
+
+int add (int argc,char *argv[])
+{
+	int a,b;
+	if(argc>3)
+		printf("\n the vlaue is false \n");
+	else
+		sscanf(argv[1],"%d",&a);
+	    sscanf(argv[2],"%d",&b);
+		return a+b;
+}
+int main(int argc,char *argv[])
+{
+	int c;
+	fp=fopen("/tmp/guest-2ulys/Desktop/a.txt","w");
+	if(argc==0)
+		return 0;
+	else
+		while(i<argc)
+		{fput(argv[i],fp);
+	i++;
+		}
+		printf("ok");
+		fclose(fp);
+		
+	c=add(argc,argv);
+	printf("\n first number +second= \%d",c);
+		
+		
+		return 0;
+}	
+	
+}
+////////////////////////////////////////////////////////////////////
+4/make_dir
+
+
+#include <sys/stat.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+
+void print_error(char *this, char *dirname){
+    fprintf(stderr, "%s cannot make directory %s\n%s\n",
+            this, dirname, strerror(errno));
+    exit(EXIT_FAILURE);
+}
+
+void print_usage(char *this){
+    fprintf(stderr, "SYNTAX ERROR:\nUsage: %s [dir_name]", this);
+    exit(EXIT_FAILURE);
+}
+
+int main(int argc, char *argv[]){
+    errno = 0;
+
+    if(argc == 2){
+        if(mkdir(argv[1], (S_IRWXG | S_IRWXU))){
+            print_error(argv[0], argv[1]);
+        }
+    }
+    else{
+        print_usage(argv[0]);
+    }
+
+    return 0;
+}
+///////////////////////////////////////////////////////////////
+
+5/ write text from file to anothor
+   
+#include<stdio.h>
+FILE *fp,*fp2;
+int i=1;
+char s;
+int main(int argc,char *argv[]) 
+{
+fp=fopen("/tmp/guest-2ulys/Desktop/a.txt","r");
+if(fp=NULL)
+	fprintf("is empty\n");
+return 0;}
+else 
+	fp2=fopen("/tmp/guest-2ulys/Desktop/b.txt","w");
+     s=fgetc(fp);
+	 while(S!=EOF)
+	 {
+		fput(S,fp2); 
+		 S=fgetc(fp);
+		 
+	 }
+fprintf("THE MOVE IS DONE\n");
+fclose(fp);
+fclose(fp2);
+return 0;
+
+}
+
+
+	
+	
+	
+	
+	

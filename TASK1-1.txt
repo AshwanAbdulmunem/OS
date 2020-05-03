@@ -1,0 +1,97 @@
+                                    Task 1.
+                                   .......... 
+
+Q1:
+ 
+#include<iostream.h>
+int main(int argc,char * argv[])
+{
+
+FILE *fp;
+fp=fopen("text.txt","w+");
+fputs(argv[1],fp);
+fclose(fp);
+return 0;
+}
+/////////////////////////////////////////////////////////////////
+
+Q2:
+
+#include<iostream>
+using namespace std;
+
+
+int multi(int argc, char *argv[])
+	{
+		return atoi(argv[1]) * atoi(argv[2]);
+	}
+
+
+int main(int argc, char *argv[])
+	{
+		
+		cout<<"the mulitiply number is : "<<multi(argc,argv)<<endl;
+		return 0;
+	}
+///////////////////////////////////////////////////////////
+Q3:
+#include<iostream>
+using namespace std;
+int main(){
+fp=fopen("/lab/text.txt","w+");
+fprint(fp,"this is testing for fprint");
+fputs("this is testing for fputs",fp);
+fclose(fp);
+return 0;
+}
+///////////////////////////////////////////////////////////
+Q4:
+/codes for all labs/
+1-
+#include<iostream>
+using namespace std;
+
+int add(int a,int b){
+int c;
+c=a+b;
+cout<<"sum"<<s<<endl;
+}
+
+int AddNumbers(int argc, char *argv[])
+	{
+		return atoi(argv[1]) + atoi(argv[2]);
+	}
+void openfile(){
+fp=fopen("/lab/text.txt","w+");
+fprint(fp,"this is testing for fprint");
+fputs("this is testing for fputs",fp);
+fclose(fp);
+return 0;
+}
+void makedir(){
+  
+    if (mkdir("operating system", 0777) == -1) 
+        cerr << "Error :  " << strerror(errno) << endl; 
+  
+    else
+        cout << "Directory created"; 
+}
+
+int main(int argc, char *argv[])
+	{
+                 int a1,a2;
+		if(argc < 3)
+			cout<<"Wrong arguments number!"<<endl;
+		else
+                        cout<<"sum : "<<add(a1,a2);
+		cout<<"Sum : "<<AddNumbers(argc,argv)<<endl;
+                   openfile();//call all functions.
+                   makedir();
+               
+		return 0;
+	}
+
+
+/////////////////////////////////////////////////////
+
+

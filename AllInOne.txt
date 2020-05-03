@@ -1,0 +1,105 @@
+#include<iostream>
+using namespace std;
+
+/*
+* function that recieve 2 numbers 
+* from argv (second & third index)
+* and return the summation fo them.
+*/
+
+int sum(int argc , char *argv[])
+{	
+	//check if number of inputs less than 2
+	//if less ==> throw an error number (0)
+	if(argc < 3)
+		throw 0;
+	else 
+		return atoi(argv[1]) + atoi(argv[2]);
+}
+
+
+/*
+* function that recieve a text
+* and write it on a file.
+*/
+
+bool WriteOnFile(int argc , char *argv[])
+{
+	FILE *WriteOnFile;
+	WriteOnFile = fopen("WriteOnFile.txt","w");
+	
+	if(fprintf(WriteOnFile,argv[3]))
+		{	
+			fclose(WriteOnFile);
+			return true;
+		}
+	else	
+		{
+			fclose(WriteOnFile);
+			return false;
+		}
+}
+
+
+/*
+* function that copy a text from
+* a file and write it on another.
+*/
+bool CopyTextToFile()
+{
+	FILE *ReadFromFile;
+	FILE *CopyOnFile;
+	char buffer[255];
+
+	ReadFromFile = fopen("WriteOnFile.txt","r");
+	CopyOnFile = fopen("CopyOnFile.txt","w");
+
+	if(fgets(buffer,255,(FILE*)ReadFromFile) && fprintf(CopyOnFile,buffer))
+		{
+			fclose(ReadFromFile);
+			fclose(CopyOnFile);
+			return true;
+		}
+	else
+		return false;	
+}
+
+
+/*
+* #arguments should be 4
+* argv[0] ==> file name
+* argv[1] ==> a number
+* argv[2] ==> a number
+* argv[3] ==> a text
+*/
+
+int main(int argc,char *argv[])
+{
+	//print the number of arguments
+	cout << "Number of arguments: " << argc << endl ;
+	
+	//check for possible run-time errors
+	try
+	{
+		cout << "sum. is: " << sum(argc,argv) << endl ;
+	}
+	catch(int Error)
+	{
+		//if the error number is 0 ==> wrong in arguments number
+		if(Error == 0)
+			cout << "Wrong arguments input!" << endl ;
+	}
+
+	if(WriteOnFile(argc,argv))
+		cout << "Writting Done!" << endl ;
+	else 
+		cout << "Writting failed!" << endl; 
+	
+	if(CopyTextToFile())
+		cout << "Copying Done!" << endl ;
+	else 
+		cout << "Copying failed!" << endl ;
+
+	return 0 ;
+
+}

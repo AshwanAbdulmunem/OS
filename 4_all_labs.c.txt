@@ -1,0 +1,31 @@
+#include<stdio.h>
+
+void write(int argc,char *argv[])
+{
+    FILE *fp;
+    fp=fopen("text_from_arg.txt","w");
+    for(int i = 1 ; i < argc; i++)
+        {
+            fputs(argv[i],fp);
+            fputs(" ",fp);
+        }
+
+    // copy to other file
+    
+    char temp[255];
+    FILE *fp2;
+
+    fp=fopen("text_from_arg.txt","r");
+    fp2=fopen("text_from_file.txt","w");
+    
+    fgets(temp,255,fp);
+    fputs(temp,fp2);
+
+    fclose(fp);
+    fclose(fp2);
+}
+
+void main(int argc,char *argv[])
+{
+    write(argc,argv);
+}

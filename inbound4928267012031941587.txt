@@ -1,0 +1,79 @@
+# include<stdio.h>
+ void writing_text( int argc ,char *argv[] )
+{
+FILE* fp;
+int i;
+fp=fopen("result.txt","w+");
+fprintf(fp,"argc=%d\n",argc);
+ for(i=0;i<argc;i++)
+{
+fprintf(fp,"argv[%d]=%s\n",i,argv[i]);
+fprintf(fp,"\n");
+
+}
+fclose(fp);
+
+}
+int add (int argc,char *argv[])
+{
+int var1,var2,sum;
+if(argc < 3 ||argc> 3)
+
+{
+printf("pleace enter two values\t");
+return-1;
+
+}
+else
+{
+scanf(argv[1],"%d",&var1);
+scanf(argv[2],"%d",&var2);
+sum=var1+var2;
+printf("the result is :%d\n",sum);
+return 0;
+}
+
+
+}
+void copy ()
+{
+FILE *f1,*f2;
+  char ch; 
+  f1=fopen("A.txt","r");
+  f2=fopen("B.txt","a");//a to copy content of textA to textB.
+  if(f1==NULL || f2==NULL)
+  {
+     printf("\nErorr:cannot open file");
+     exit(1);
+  }
+  while(1)
+  {
+    ch=fgetc(f1);
+    if(ch==EOF)//end of file
+       break;
+    fputc(ch,f2);
+
+
+
+  }
+
+  fclose(f1);
+  fclose(f2);
+  return 0;
+}
+ int main ( int argc ,char *argv[])
+{
+ int num;
+scanf("%d",&num);
+switch(num)
+{
+case 1: writing_text(argc, argv);
+break;
+
+case 2: add(argc,argv);
+break;
+case 2: void copy();
+break;
+default :printf("pleace enter the chooce num");
+}
+}

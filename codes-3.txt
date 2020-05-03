@@ -1,0 +1,164 @@
+//1
+#include<stdio.h>
+FILE *fp;
+int i=1;
+int main(int argc,char *argv[])
+{
+fp=fopen("/home/zeena/Desktop/x.txt","w+");
+if(argc==0)
+return 0;
+else
+while(i<argc)
+{fputs(argv[i],fp);
+i++;}
+printf("done");
+fclose(fp);
+return 0;
+}
+
+
+
+
+//2
+#include<stdio.h>
+#include<string.h>
+Int add (int argc,char *argv[])
+{
+Int x,y;
+If(argc>3)
+Printf(“\n the value is error \n);
+else
+sscanf(argv[1] ,”%d” ,&x);
+sscanf(argv[2] ,”%d” ,&y);
+return x+y;
+
+}
+int main(int argc,char *argv[])
+{int z;
+z= add(argc,argv);
+printf("\n first num + second num = % d” ,z);
+printf(“\n”);
+return 0;
+}
+
+/////3
+#include<stdio.h>
+#include<string.h>
+void all_f( int argc,char *argv[])
+{
+FILE *fr;
+int i=1;
+fr=fopen("/home/zeena/Desktop/x.txt","w+");
+FILE *fw;
+fw=fopen("/home/zeena/Desktop/x2.txt","w+");
+char filewrite[150];
+while(!feof(fr))
+{
+Fgets(filewrite,150,fr);
+Fprintf(fw,%s\n”,filewrite);
+}
+fputs(“name: ,fw);
+fputs(argv[1],fw);
+fclose(fr);
+fclose(fw);
+
+}
+int main(int argc,char *argv[])
+{
+all_f(argc , argv);
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////4
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+FILE *f1,*f2;
+char c,filen[100];
+printf("enter the filen to open /n");
+scanf("%s",filen);
+f1=fopen(filen,"r");
+if(f1== NULL)
+{
+printf("can not open %s /n",filen);
+exit(0);
+}
+printf("enter the filen to open /n");
+scanf("%s",filen);
+f2=fopen(filen,"w");
+if(f2== NULL)
+{
+printf("can not open %s /n",filen);
+exit(0);
+}
+c=fgetc(f1);
+while(c != EOF)
+{fputc(c,f2);
+c=fgetc(f1);
+}
+printf("content copied to %s",filen);
+fclose(f1);
+fclose(f2);
+return 0;
+}
+
+
+
+
+
+
+
+
+
+////5
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<errno.h>
+Void print_error( char * this , char  *filename1 , char *filename2){
+Fprintf( stderr ,”%s connot move %s to %s\n%s\n”,
+This , filename1, filename2 , strarror(errno));
+Exit(EXIT_FAILURE);
+}
+Void print_usage(char *this)
+{
+Fprintf(stderr , “SYNTAX ERROR:\nUsage %s[old_filename]  [new_filename”,this);
+exit(EXIT_FAILURE);
+}
+Int main(int argc , char *argv[])
+{
+errno= 0;
+if(argc == 3)
+{
+If(rename(argv[1] , argv[2])==-1)
+{
+Print_error(argv[0] ,argv[1], argv[2]);
+}
+
+}
+else{
+Print_usage(argv[0]);
+}
+return 0;
+}
+
+
+
+}
+
+

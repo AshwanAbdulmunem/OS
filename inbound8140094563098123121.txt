@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+  FILE *f1,*f2;
+  char ch; 
+  f1=fopen("A.txt","r");
+  f2=fopen("B.txt","a");//a to copy content of textA to textB.
+  if(f1==NULL || f2==NULL)
+  {
+     printf("\nErorr:cannot open file");
+     exit(1);
+  }
+  while(1)
+  {
+    ch=fgetc(f1);
+    if(ch==EOF)//end of file
+       break;
+    fputc(ch,f2);
+
+
+
+  }
+
+  fclose(f1);
+  fclose(f2);
+  return 0;
+}
+//this is solution of (writing text from file to another).

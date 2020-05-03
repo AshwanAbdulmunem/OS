@@ -1,0 +1,48 @@
+\\first lab\\
+#include<stdio.h>
+main()
+{
+printf("hellow world\n");
+}
+*
+*
+*
+\\second lab\\
+#include<stdio.h>
+main()
+{
+int x,y sum;
+printf("enter n1:");
+scanf("%d",&x);
+printf("\n");
+printf("enter n2:");
+scanf("%d",&y);
+sum=x+y;
+printf("sum is:");
+scanf("%d",sum);
+printf("\n")
+}
+
+
+*
+*
+*
+\\second lab\\
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+FILE *fp;
+fp=fopen("\home\baneen\b.txt","w");
+fprint(fp,"baneen");
+fputs("hamid",fp);
+fclose(fp);
+return 0;
+}
+
+
+
+
+
+

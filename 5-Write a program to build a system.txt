@@ -1,0 +1,11 @@
+#include<stdio.h>
+int main(int argc,char *argv[])
+{
+printf("welcome in OS normal \n");
+if((!strcmp(argv[1],"run")&&(!strcmp(argv[2],"g-z"))
+  system("./osGole");
+
+else
+printf("ERROR\n");
+return0;
+}
